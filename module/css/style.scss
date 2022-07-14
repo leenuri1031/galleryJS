@@ -1,0 +1,18 @@
+@use './var'as var;
+@use './mixin' as mixin;
+@use './basic';
+
+// --------------------------------------------------------------
+
+#root{
+  @include mixin.root;
+  @include mixin.flex(center, center);
+  background-color: var.$col-gray;
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+}
+
+#container{
+  @include mixin.size(var.$per-100, var.$per-100);
+  @include mixin.flex(center, center, column);
+}
