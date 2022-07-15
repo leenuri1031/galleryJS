@@ -3,6 +3,45 @@
 @use './basic';
 
 // --------------------------------------------------------------
+.section1{
+  @include mixin.size(85%, 15%);
+  @include mixin.flex(space-around, center);
+}
+
+.section2{
+  @include mixin.size(85%, 75%);
+  background-color: var.$col-8;
+  position: relative;
+}
+
+.no-bgc-section2{
+  @include mixin.size(85%, 75%);
+  position: relative;
+}
+
+.title-txt{
+  @include mixin.font(3rem, 700, var.$col-dark-gray);
+}
+
+.sub-txt{
+  @include mixin.font(2rem, 600, var.$col-dark-gray);
+}
+
+.circle-menu{
+  background-color: var.$col-2;
+  border-radius: 50%;
+  position: absolute;
+  @include mixin.font(0.8rem, 500, var.$col-dark-gray);
+  @include mixin.flex(center, center);
+  text-align: center
+}
+
+a {
+  text-decoration-line: none;
+  color: var.$col-dark-gray;
+}
+
+// -------------------------------------------------------- class
 
 #root{
   @include mixin.root;
@@ -16,3 +55,53 @@
   @include mixin.size(var.$per-100, var.$per-100);
   @include mixin.flex(center, center, column);
 }
+
+#section1{
+  &> div{
+    @include mixin.size(30%, 90%);
+    @include mixin.flex(space-around, center, column);
+  }
+  
+  &>div:nth-child(1){
+    
+    &>div:nth-child(1){
+      @include mixin.size(var.$per-100, 30%);
+      @include mixin.flex(flex-start, center);
+    }
+    
+    &>div:nth-child(2){
+      @include mixin.size(80%, 30%);
+      @include mixin.flex(flex-end, center);
+    }
+    
+    &>div:nth-child(3){
+      @include mixin.size(var.$per-100, 30%);
+      @include mixin.flex(center, center);
+    }
+  }
+}
+
+#section2{
+  .media-menu{
+    @include mixin.size(90px,90px);
+    left: 20%;
+    top: 15%;
+  }
+
+  .gallery-menu{
+    @include mixin.size(100px,100px);
+    left: 50%;
+    top: 35%;
+  }
+
+  .life-menu{
+    @include mixin.size(125px,125px);
+    left: 80%;
+    top: 15%;
+  }
+}
+
+
+
+
+// --------------------------------------------------------- id
