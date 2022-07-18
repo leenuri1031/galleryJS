@@ -1,64 +1,75 @@
 import { life1,life2 } from "./txtContents.js";
 
-{/* <section className="section1">
-<TitleText></TitleText>
-</section>
-<section className="no-bgc-section2">
-<LifeContent></LifeContent>
-</section> */}
+// const title = [
+//   "Vincent van Gogh",
+//   "Gallery Entrance",
+//   "Gallery Hall",
+//   "Gogh in the media",
+// ];
 
-const title = [
-  "Vincent van Gogh",
-  "Gallery Entrance",
-  "Gallery Hall",
-  "Gogh in the media",
-];
+// const hashArr = ["#/life/", "#/gallery/main", "#/galleryHall/", "#/media/"];
 
-const hashArr = ["#/life/", "#/gallery/main", "#/galleryHall/", "#/media/"];
+// function titleChange() {
+//   for (let i = 0; i < title.length; i++) {
+//     if (window.location.hash === hashArr[i]) {
+//       return title[i];
+//     }
+//   }
+// }
 
-function titleChange() {
-  for (let i = 0; i < title.length; i++) {
-    if (window.location.hash === hashArr[i]) {
-      return title[i];
-    }
-  }
-}
-
-const titleText = ()=>{
+const titleText = (props)=>{
   return (
-    `<div id="title-box">
-      <div class="sub-txt">${titleChange()}</div>
-    </div>`
-  )
-}
-
-const lifeContents = ()=> {
-  return(
-    `
-    <div id="content-box">
-    <div>
-      <div>${life1}</div>
-      <div></div>
-    </div>
-    <div>
-      <div>${life1}</div>
-      <div></div>
-    </div>
-    <div>
-      <div>${life2}</div>
-      <div></div>
-    </div>
-      <div></div>
-    </div> 
+    `<${props.tag} id=${props.id}>
+      <${props.tag} class="${props.class}">${props.title}</${props.tag}>
+    </${props.tag}>
     `
   );
+}
+
+const titleObj = {
+  tag : 'div',
+  id : 'title-box',
+  class : 'sub-txt',
+  title : 'Vincent van Gogh'
+}
+
+const lifeContents = (props)=> {
+  return(
+    `
+    <${props.tag} id="${props.id}">
+      <${props.tag}>
+        <${props.tag}>${props.text1}</${props.tag}>
+        <${props.tag}></${props.tag}>
+      </${props.tag}>
+
+      <${props.tag}>
+        <${props.tag}>${props.text1}</${props.tag}>
+        <${props.tag}></${props.tag}>
+      </${props.tag}>
+
+      <${props.tag}>
+        <${props.tag}>${props.text2}</${props.tag}>
+        <${props.tag}></${props.tag}>
+      </${props.tag}>
+
+      <${props.tag}></${props.tag}>
+    </${props.tag}>
+    `
+  );
+}
+
+const lifeContentsObj = {
+  tag : 'div',
+  id : 'content-box',
+  text1 : life1,
+  text2 : life2
 }
 
 const lifeSection = ()=> {
   return(
     `
-    ${titleText}
-    ${lifeContents}
+    ${titleText(titleObj)}
+    ${lifeContents(lifeContentsObj)}
     `
   )
 }
