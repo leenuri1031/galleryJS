@@ -60,7 +60,7 @@ const mainSection = ()=>{
     ${section1Comp(section1Obj)}
     ${section2Comp(section2Obj)}
     `
-    )
+    );
 }
 
 export default mainSection();
